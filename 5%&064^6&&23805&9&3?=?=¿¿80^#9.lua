@@ -336,7 +336,11 @@ PandasUwU:Toggle("Auto gloves (rusty)", function(Toggle)
   getgenv().XD = Toggle
     while getgenv().XD == true do
     task.wait()
-fireclickdetector(game:GetService("Workspace").Items["B35C3E7E-3F1C-42ED-ACFC-35913F227602"].ClickDetector)
+for i, v in pairs(game:GetService('Workspace').Items:GetChildren()) do
+    if v:FindFirstChild("Gloves $75") then
+        fireclickdetector(v.ClickDetector)
+    end
+    end
 
 game.Workspace.Chars.therockof.Humanoid.WalkToPoint = Vector3.new(-1339,36,711)
 wait(1.5)
