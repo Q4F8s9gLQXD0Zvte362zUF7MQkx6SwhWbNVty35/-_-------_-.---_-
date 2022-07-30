@@ -20,7 +20,7 @@ print("if u see this u are dumb :>")
    local IsuLib = loadstring(game:HttpGet("https://nigger.identityhub.tk/ui/library.lua"))()
 
  local Window = IsuLib:Create({
-     Name = "Furious Panda | V0.4",
+     Name = "Furious Panda | V1.0 OPEN!!!",
      StartupSound = {
          Toggle = true,
          SoundID = "rbxassetid://6958727243", -- Win 11 Startup Sound
@@ -29,7 +29,7 @@ print("if u see this u are dumb :>")
  })
 
  local PandasUwU = Window:Tab('Grind')
- local Example = Window:Tab('Misc')
+ local Example = Window:Tab('Misc/Info')
  local OwO = Window:Tab("Pvp Options")
  local Pene = Window:Tab('AutoStyle')
  local Wuapo = Window:Tab('AutoClan')
@@ -55,19 +55,6 @@ print("if u see this u are dumb :>")
  end)
 
 
-
- PandasUwU:Toggle("Auto Clicker", function(Toggle)
-
-  local vu = game:GetService("VirtualUser")
-  getgenv().XD = Toggle
-     while getgenv().XD == true do
-     task.wait()
- 
-  vu:Button1Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-  wait(0.1)
-  vu:Button1Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-    end
-  end)
   
   Wuapo:Button('Sung', function()
     fireclickdetector(game:GetService("Workspace").SpecialTrainers.Sung.ClickDetector)
@@ -332,77 +319,103 @@ end)
 end)
 
 
-PandasUwU:Toggle("Auto gloves (rusty)", function(Toggle)
-  getgenv().XD = Toggle
-    while getgenv().XD == true do
-    task.wait()
 
-game.Workspace.Chars.therockof.Humanoid.WalkToPoint = Vector3.new(-1339,36,711)
-wait(1.5)
-game.Workspace.Chars.therockof.Humanoid.WalkToPoint = Vector3.new(-1356,36,708)
-wait(1)
-
-wait(0.6)
-
-                              game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Gloves"))
-                              game.Players.LocalPlayer.Character:FindFirstChild("Gloves"):Activate()
-                              wait(0.3)
-                              game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Combat"))
-                              wait(19.3)
-                              game.Workspace.Chars.therockof.Humanoid.WalkToPoint = Vector3.new(-1339,36,711)
-                              game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Gym Card"))
-                              wait(1)
-                              game.Workspace.Chars.therockof.Humanoid.WalkToPoint = Vector3.new(-1341,36,751)
-                              wait(1)
-                              
-                              wait(5)
-
-                              
-                      
             
                              
 
                               
                               
+PandasUwU:Button('AutoClickerV2', function()
+local CoreGui = game:GetService("CoreGui")
+local Players = game:GetService("Players")
+local VirtualInputManager = game:GetService("VirtualInputManager")
 
+--// Variables \\--
+local Player = Players.LocalPlayer
+local Enabled = false
+local Mouse = Player:GetMouse()
+local X, Y = 0, 0
+local LastC = Color3.new(1, 0, 0)
+local LastU = tick()
 
-                              
+--// Exploit Fix \\--
+if not pcall(function() return syn.protect_gui end) then
+    syn = {}
+    syn.protect_gui = function(A_1)
+        A_1.Parent = CoreGui
     end
-end)
+end
 
-Example:Toggle("Auto gloves Dark", function(Toggle)
-  getgenv().XD = Toggle
-    while getgenv().XD == true do
-    task.wait()
-game.Workspace.Chars.DarxknessX.Humanoid.WalkToPoint = Vector3.new(-1339,36,711)
-wait(1.5)
-game.Workspace.Chars.DarxknessX.Humanoid.WalkToPoint = Vector3.new(-1323,36,709)
-wait(1)
-
-wait(0.6)
-
-                              game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Gloves"))
-                              game.Players.LocalPlayer.Character:FindFirstChild("Gloves"):Activate()
-                              wait(0.3)
-                              game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Combat"))
-                              wait(19.3)
-                              game.Workspace.Chars.DarxknessX.Humanoid.WalkToPoint = Vector3.new(-1339,36,711)
-                              game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Gym Card"))
-                              wait(1)
-                              game.Workspace.Chars.DarxknessX.Humanoid.WalkToPoint = Vector3.new(-1341,36,751)
-                              wait(1)
-                              
-                              wait(5)
-
-                              
-                      
-            
-                             
-
-                              
-                              
-
-
-                              
+--// UI Library \\--
+local Library = loadstring(game:HttpGetAsync('https://pastebin.com/raw/edJT9EGX'))()
+local Window = Library:CreateWindow("AutoClicker by dumb guy ")
+Enabled_1 = Window:AddColor({
+    text = 'Status:',
+    flag = "Ezpi_1",
+    color = Color3.new(1, 0, 0),
+    callback = function(A_1)
+        -- "Enabled" Color
+        local NewColor = Color3.new(0, 1, 0)
+        if Enabled == false then
+            NewColor = Color3.new(1, 0, 0)
+        end
+        if NewColor ~= Last or A_1 ~= NewColor then
+            Last = NewColor
+            Enabled_1:SetColor(NewColor)
+        end
     end
-end)
+})
+Window:AddBind({
+    text = 'Toggle',
+    callback = function()
+        -- Toggle
+        Enabled = not Enabled
+        -- "Enabled" Color
+        local NewColor = Color3.new(0, 1, 0)
+        if Enabled == false then
+            NewColor = Color3.new(1, 0, 0)
+        end
+        if NewColor ~= Last then
+            Last = NewColor
+            Enabled_1:SetColor(NewColor)
+        end
+        -- Click Position
+        if Enabled then
+            -- Update Mouse Pos
+            X, Y = Mouse.X, Mouse.Y + 10
+            -- Update Box
+            Box_1:SetValue()
+        else
+            X, Y = 0, 0
+            Box_1:SetValue()
+        end
+        -- AutoClick
+        while Enabled do
+            VirtualInputManager:SendMouseButtonEvent(X, Y, 0, true, game, 1)
+            VirtualInputManager:SendMouseButtonEvent(X, Y, 0, false, game, 1)
+            wait(Library.flags.Interval)
+        end
+    end
+})
+Window:AddSlider({
+    text = 'Interval',
+    min = 0.01,
+    max = 2,
+    value = 1,
+    float = 0.01
+})
+Box_1 = Window:AddBox({
+    text = "AutoClick Position:",
+    value = "X: " .. X .. ", Y: " .. Y,
+    callback = function()
+        if tick()-LastU > 0.1 then
+            LastU = tick()
+            Box_1:SetValue("X: " .. X .. ", Y: " .. Y)
+        end
+    end
+})
+Library:Init()
+  end)
+Example:Button("Info Press F9", function()
+  print ("https://discord.gg/R9EBp4TjQv")
+  end)
