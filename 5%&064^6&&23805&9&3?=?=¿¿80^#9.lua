@@ -375,7 +375,7 @@ Example:Toggle("Auto gloves Dark", function(Toggle)
   getgenv().XD = Toggle
     while getgenv().XD == true do
     task.wait()
-fireclickdetector(game:GetService("Workspace").Items["B35C3E7E-3F1C-42ED-ACFC-35913F227602"].ClickDetector)
+fireclickdetector(game:GetService("Workspace").Items["4D9A3B34-DC30-4483-AE8C-D76EAA0AF717"].ClickDetector)
 
 game.Workspace.Chars.DarxknessX.Humanoid.WalkToPoint = Vector3.new(-1339,36,711)
 wait(1.5)
