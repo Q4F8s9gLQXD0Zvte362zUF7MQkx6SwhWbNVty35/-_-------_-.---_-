@@ -156,6 +156,16 @@ print("if u see this u are dumb :>")
     end
  end)
 
+PandasUwU:Toggle("Auto Leg Sweep", function(Toggle)
+  getgenv().XD = Toggle
+    while getgenv().XD == true do
+    task.wait()
+  game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Leg Sweep"))
+   wait(0.2)
+   game.Players.LocalPlayer.Character:FindFirstChild("Leg Sweep"):Activate()
+    end
+ end)
+
  
 
  PandasUwU:Toggle("Auto Dumbbell 100KG", function(Toggle)
