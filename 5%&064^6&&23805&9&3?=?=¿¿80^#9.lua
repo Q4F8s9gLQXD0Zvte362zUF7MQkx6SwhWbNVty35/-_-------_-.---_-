@@ -178,7 +178,7 @@ print("if u see this u are dumb :>")
 
  Example:Button("NO CD V2.1", function()
   while wait() do
-    wait(0.0.3)
+    wait(0.03)
     game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Phone"))
     end
  end)
