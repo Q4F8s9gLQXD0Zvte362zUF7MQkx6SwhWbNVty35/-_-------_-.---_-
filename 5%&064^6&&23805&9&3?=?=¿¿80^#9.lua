@@ -45,14 +45,6 @@ print("if u see this u are dumb :>")
  end)
 
 
- PandasUwU:Toggle("Auto Pulls Ups", function(Toggle)
-  getgenv().XD = Toggle
-    while getgenv().XD == true do
-    task.wait()
-
- fireclickdetector(game:GetService("Workspace").TrainingStations.Model.ClickDetector)
-    end
- end)
 
 
   
