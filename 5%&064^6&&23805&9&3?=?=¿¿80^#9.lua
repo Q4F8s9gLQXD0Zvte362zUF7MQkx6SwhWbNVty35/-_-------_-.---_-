@@ -476,6 +476,11 @@ local ExampleToggle = Groupbox5:CreateToggle("Change Fov", function()
    local ExampleButton = Groupbox8:CreateButton("Join Ranked (No Reqs)", function()
     game:GetService("TeleportService"):Teleport(6412360032, game:GetService("Players").LocalPlayer)
    end)
+    
+    local ExampleButton = Groupbox8:CreateButton("Streamer Mode", function()
+    game:GetService("Players").LocalPlayer.PlayerGui.MainGui.StatusFrame["Name/Clan"]:Destroy()
+    game:GetService("Players").LocalPlayer.PlayerGui.PlayerList:Destroy()
+    end)
 
    local ExampleButton = Groupbox8:CreateButton("AutoKick at 0% hunger", function()
     getgenv().percentage = "0/100"
